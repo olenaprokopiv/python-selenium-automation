@@ -6,6 +6,7 @@ HELP_SEARCH = (By.ID, "helpsearch" )
 SUBMIT_BUTTON = (By.CSS_SELECTOR, ".a-button-input")
 CANCEL_ORDER_TEXT = (By.CSS_SELECTOR, ".help-content h1")
 
+
 @given('Open Amazon Help page')
 def open_amazon_help_page(context):
     context.driver.get("https://www.amazon.com/gp/help/customer/display.html")

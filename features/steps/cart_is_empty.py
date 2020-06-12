@@ -7,6 +7,7 @@ CART_EMPTY_TEXT = (By.CSS_SELECTOR, ".sc-your-amazon-cart-is-empty h2")
 def click_cart_button(context):
     context.driver.find_element(By.CSS_SELECTOR, ".nav-cart-icon").click()
 
+
 @then('Verify text {text} on the cart page')
 def verify_cart_empty_text(context, text):
     verify_text = context.driver.find_element(*CART_EMPTY_TEXT).text

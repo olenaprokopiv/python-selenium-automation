@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 ORDERS_BUTTON_LOCATOR = (By.XPATH, "//span[@class='nav-line-2' and text()='& Orders']")
 EMAIL_FIELD_LOCATOR = (By.ID, "ap_email")
 
+
 @given('Open Amazon page')
 def open_amazon_page(context):
     context.driver.get('https://www.amazon.com/')
@@ -18,6 +19,7 @@ def clic_orders_button(context):
 @then('Verify Sign in page opened')
 def Verify_page_opened(context):
     context.driver.find_element(*EMAIL_FIELD_LOCATOR)
+
 
 @then('Verify URL has {expected_url}')
 def verify_signin_url(context, expected_url):
