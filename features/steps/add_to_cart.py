@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-#from time import sleep
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import WebDriverException
 
 
 SEARCH_BOX = (By.ID, "twotabsearchtextbox")
@@ -40,24 +40,23 @@ def add_to_cart(context):
 @when('Close popup')
 def close_popup(context):
     try:
-        #sleep(4)
         context.wait.until(EC.element_to_be_clickable(POPUP_CART))
         popup = context.driver.find_element(*POPUP_CART)
         popup.click()
-    except:
+    except WebDriverException:
         print("popup not found")
 
 
-@then('Number of items in the cart more than zero')
-def more_zero(context):
+@then('Number of items in the cart is {number}')
+def num_items_cart(context, number):
     try:
        context.wait.until(EC.element_to_be_clickable(CART_BUTTON))
        cart_button = context.driver.find_element(*CART_BUTTON)
        cart_button.click()
-    except:
+    except WebDriverException:
         print("failed to wait cart button clickable")
     context.wait.until(EC.element_to_be_clickable(DROPDOWN))
     elem = context.driver.find_element(*DROPDOWN)
     numstr = elem.text
-    if int(numstr) > 0:
-        print("Number of items in the cart more than zero")
+    print('numstr =', numstr)
+    assert numstr == number

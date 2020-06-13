@@ -8,4 +8,4 @@ Feature: Scenarios for Cart functionality
     And Click image of the first item
     And Click add to the cart
     And Close popup
-    Then Number of items in the cart more than zero
+    Then Number of items in the cart is 1
