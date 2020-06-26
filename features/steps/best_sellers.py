@@ -3,7 +3,7 @@ from behave import given, when, then
 
 
 BESTSELLER = (By.CSS_SELECTOR, "#nav-xshop a[href*='bestseller']")
-EACH_TAB = (By.CSS_SELECTOR, "#zg_tabs li")
+ALL_TAB = (By.CSS_SELECTOR, "#zg_tabs li")
 BANNER_TEXT = (By.CSS_SELECTOR, "#zg_banner_text_wrapper")
 
 
@@ -12,15 +12,15 @@ def click_bestSellers_button(context):
     context.driver.find_element(*BESTSELLER).click()
 
 
-@then('Click on each tab and verify correct page opens')
-def Click_each_tab(context):
+@then('Click on all tab and verify correct page opens')
+def Click_all_tab(context):
 
-    each_tab = context.driver.find_elements(*EACH_TAB)
-    print(f'numlinks {len(each_tab)}')
+    all_tab = context.driver.find_elements(*ALL_TAB)
+    print(f'numlinks {len(all_tab)}')
 
-    for li in range(len(each_tab)):
+    for li in range(len(all_tab)):
 
-        tab_click = context.driver.find_elements(*EACH_TAB)[li]
+        tab_click = context.driver.find_elements(*ALL_TAB)[li]
         tab_text = tab_click.text
 
         tab_click.click()
