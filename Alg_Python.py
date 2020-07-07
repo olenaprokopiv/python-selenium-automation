@@ -83,6 +83,67 @@
 # S = sum_of_digits(s)
 # print(S)
 
+#HW_Algorithms_5
+
+#1 Last problem from slides (Sum of odd numbers)
+
+# def row_sum_odd_numbers(nr):
+#     nodd = 1
+#     for i in range(nr):
+#         n = i + 1
+#         summ = 0
+#         for j in range(n):
+#             summ += nodd
+#             nodd += 2
+#         if n == nr:
+#            print(summ)
+#            return summ
+#
+# row_sum_odd_numbers(1)
+# row_sum_odd_numbers(2)
+# row_sum_odd_numbers(3)
+# row_sum_odd_numbers(4)
+
+#2 When given a list, the program should return a list of all the elements
+# that are below the arithmetical mean of the original list.
+# The arithmetical mean is the sum of all elements divided by the number of elements.
+
+# def below_the_arithmetical(lst):
+#     summ = 0
+#     arr =[]
+#     for n in lst:
+#         summ += n
+#     arithm = summ / len(lst)
+#     for n in lst:
+#         if n < arithm:
+#             arr.append(n)
+#     print(arr)
+#     return arr
+#
+# below_the_arithmetical([1, 4, 3, 2, 10, 12])
+
+
+#3 When given a list of elements find the two lowest elements. They can be equal to each other or different.
+
+# def two_lowest_elements(array):
+#     lmin_1 = 100000
+#     lmin_2 = 100000
+#     for i in array:
+#         if i < lmin_1 and i >= lmin_2:
+#             lmin_1 = i
+#         if i < lmin_2 and i >= lmin_1:
+#             lmin_2 = i
+#         if i < lmin_1 and i < lmin_2:
+#             if lmin_1 > lmin_2:
+#                 lmin_1 = i
+#             else:
+#                 lmin_2 = i
+#
+#     print(lmin_1, lmin_2)
+#
+# two_lowest_elements([5, 5, 4, 6, 2, 2, 1, 1])
+
+
 
 
 

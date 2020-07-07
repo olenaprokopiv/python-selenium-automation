@@ -13,8 +13,10 @@ def blog_link(context, updates):
     print(context.original_windows)
     context.original_window = context.driver.current_window_handle
     print(context.original_window)
+    print("curr window before blog link click = ", context.driver.current_window_handle)
     context.wait.until(EC.element_to_be_clickable(BLOG_LINK))
     context.driver.find_element(*BLOG_LINK).click()
+    print("curr window after blog link click = ", context.driver.current_window_handle)
 
 
 @when('Switch to the new opened window')
@@ -25,7 +27,10 @@ def switch_window(context):
     for old_window in context.original_windows:
         current_windows.remove(old_window)
     print(current_windows)
+    print("window before switch = ", context.driver.current_window_handle )
     context.driver.switch_to_window(current_windows[0])
+    print("window after switch = ", context.driver.current_window_handle)
+
 
 
 @then('Amazon Blog {text} is opened')
@@ -39,6 +44,7 @@ def verify_blog_open(context, text):
 def close_and_back(context):
     context.driver.close()
     context.driver.switch_to_window(context.original_window)
+
 
 
 
